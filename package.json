@@ -1,0 +1,26 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "lint": "prettier --write resources/",
+        "test:lint": "prettier --check resources/"
+    },
+    "devDependencies": {
+        "@alpinejs/mask": "^3.14.9",
+        "@alpinejs/morph": "^3.14.9",
+        "@alpinejs/persist": "^3.14.9",
+        "@tailwindcss/vite": "^4.1.8",
+        "alpinejs": "^3.14.9",
+        "axios": "^1.8.4",
+        "concurrently": "^9.0.1",
+        "prettier": "^3.5.3",
+        "prettier-plugin-organize-imports": "^4.1.0",
+        "prettier-plugin-tailwindcss": "^0.6.12",
+        "laravel-vite-plugin": "^1.2.0",
+        "tailwindcss": "^4.1.8",
+        "vite": "^6.3.5"
+    }
+}
