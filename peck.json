@@ -5,7 +5,9 @@
             "php",
             "filesystems",
             "favicon",
-            "js"
+            "js",
+            "dropdown",
+            "nav"
         ],
         "paths": []
     }
