@@ -2,12 +2,22 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "rrpadilla/laravel-starter-kit",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Laravel Blade + Tailwind Starter Kit.",
     "keywords": [
         "laravel",
-        "framework"
+        "framework",
+        "tailwindcss",
+        "laravel starter kit",
+        "shadcn/ui",
+        "blade"
     ],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Rodolfo Ruiz",
+            "homepage": "https://www.thinkronizing.com/"
+        }
+    ],
     "require": {
         "php": "^8.4",
         "blade-ui-kit/blade-icons": "^1.8",
