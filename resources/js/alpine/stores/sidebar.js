@@ -5,7 +5,9 @@ export default (Alpine) => ({
     openMobile: false,
 
     init() {
-        const mql = window.matchMedia(`(max-width: ${this.mobileBreakpoint - 1}px)`);
+        const mql = window.matchMedia(
+            `(max-width: ${this.mobileBreakpoint - 1}px)`
+        );
         this.isMobile = mql.matches;
         mql.addEventListener('change', (e) => {
             Alpine.store('sidebar').isMobile = e.matches;

@@ -1,4 +1,3 @@
-<!-- resources/views/components/layouts/app/sidebar-layout.blade.php -->
 <x-ui.sidebar.provider>
     <x-app-sidebar />
     <x-ui.sidebar.inset>

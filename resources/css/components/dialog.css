@@ -1,0 +1,37 @@
+/* Dialog */
+@layer components {
+    dialog {
+        @apply fixed inset-y-0 opacity-0 transition-all transition-discrete;
+
+        &::backdrop {
+            @apply bg-black/50 opacity-0 transition-all transition-discrete;
+        }
+
+        & > [data-slot='dialog-overlay'] {
+            @apply bg-black/50 opacity-0 transition-all transition-discrete;
+            @apply fixed inset-0;
+        }
+
+        & > [data-slot='dialog-content'] {
+            @apply bg-popover text-popover-foreground fixed top-1/2 left-1/2 z-50 flex w-full max-w-[calc(100%_-_2rem)] -translate-x-1/2 -translate-y-1/2 scale-95 flex-col gap-4 rounded-lg border p-6 opacity-0 shadow-lg transition-all transition-discrete sm:max-w-lg;
+
+            & [data-slot='dialog-footer'] {
+                @apply flex flex-col-reverse gap-2 sm:flex-row sm:justify-end;
+            }
+        }
+
+        /* — Visible state — */
+        &[open] {
+            @apply opacity-100;
+
+            &::backdrop,
+            & > [data-slot='dialog-overlay'] {
+                @apply opacity-100;
+            }
+
+            & > [data-slot='dialog-content'] {
+                @apply scale-100 opacity-100;
+            }
+        }
+    }
+}

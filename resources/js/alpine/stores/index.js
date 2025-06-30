@@ -42,10 +42,5 @@ export default function registerStores(Alpine) {
                 : definition.default;
 
         Alpine.store(camelName, store);
-
-        // Auto-initialize the store if it has an init() method
-        if (typeof store.init === 'function') {
-            store.init();
-        }
     });
 }

@@ -1,6 +1,4 @@
-<!-- resources/views/components/ui/sidebar/menu-button.blade.php -->
 @props([
-    'as' => 'button',
     'isActive' => false,
     'variant' => 'default',
     'size' => 'default',
@@ -30,7 +28,7 @@
                $class;
 @endphp
 
-<{{ $as }}
+<button
     data-slot="sidebar-menu-button"
     data-sidebar="menu-button"
     data-size="{{ $size }}"
@@ -38,4 +36,4 @@
     {{ $attributes->merge(['class' => $classes]) }}
 >
     {{ $slot }}
-</{{ $as }}>
+</button>

@@ -1,4 +1,3 @@
-<!-- resources/views/components/ui/sidebar/provider.blade.php -->
 @props(['sidebarWidth' => '16rem', 'sidebarWidthIcon' => '3rem'])
 
 <div

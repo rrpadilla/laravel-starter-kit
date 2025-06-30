@@ -1,4 +1,3 @@
-{{-- resources/views/components/ui/sidebar/group-label.blade.php --}}
 @props(['as' => 'div', 'class' => ''])
 
 <{{ $as }}

@@ -1,0 +1,20 @@
+/* Accordion / Collapsible */
+@layer components {
+    details {
+        &::details-content {
+            block-size: 0;
+            @apply block opacity-0 transition-all transition-discrete;
+        }
+        &[open]::details-content {
+            block-size: auto;
+            block-size: calc-size(auto, size);
+            @apply opacity-100;
+        }
+        summary {
+            @apply inline-flex cursor-pointer items-center;
+        }
+    }
+    details > summary::-webkit-details-marker {
+        display: none;
+    }
+}

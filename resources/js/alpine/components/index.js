@@ -6,6 +6,7 @@
  * ┌ Example Directory Structure:
  * └── components/
  *     ├── modal.js                  -> x-data="modal"
+ *     ├── popover.js                  -> x-data="popover"
  *     ├── menu-dropdown.js          -> x-data="menuDropdown"
  *     └── sidebar/mobile-panel.js   -> x-data="sidebarMobilePanel"
  *
@@ -37,7 +38,9 @@ export default function registerComponents(Alpine) {
         if (typeof definition.default === 'function') {
             Alpine.data(camelName, definition.default);
         } else {
-            console.warn(`[Alpine] Component "${camelName}" must export a default function.`);
+            console.warn(
+                `[Alpine] Component "${camelName}" must export a default function.`
+            );
         }
     });
 }

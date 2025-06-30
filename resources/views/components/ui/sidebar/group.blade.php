@@ -1,4 +1,3 @@
-<!-- resources/views/components/ui/sidebar/group.blade.php -->
 @props(['class' => ''])
 
 <div

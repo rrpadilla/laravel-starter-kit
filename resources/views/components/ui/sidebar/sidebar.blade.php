@@ -1,4 +1,3 @@
-<!-- resources/views/components/ui/sidebar/sidebar.blade.php -->
 @props([
     'sidebarWidthMobile' => '18rem',
     'side' => 'left', // 'left' or 'right'
@@ -47,17 +46,16 @@
                 <div
                     class="absolute right-0 top-0 flex justify-center transition-none"
                 >
-                    <x-ui.button
+                    <button
                         data-sidebar="trigger"
                         data-slot="sidebar-trigger"
-                        variant="ghost"
                         size="icon"
-                        class="size-7"
+                        class="btn-ghost size-7"
                         x-on:click="$store.sidebar.openMobile = false"
                     >
                         @svg('lucide-x', 'w-5 h-5 lucide lucide-x-circle')
                         <span class="sr-only">Close Sidebar</span>
-                    </x-ui.button>
+                    </button>
                 </div>
                 <div class="sr-only">
                     <h2>Sidebar</h2>

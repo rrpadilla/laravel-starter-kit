@@ -1,12 +1,12 @@
 export default () => ({
     open: false,
     toggle() {
-        this.open = !this.open
+        this.open = !this.open;
     },
     close() {
-        this.open = false
+        this.open = false;
     },
     openDialog() {
-        this.open = true
-    }
+        this.open = true;
+    },
 });

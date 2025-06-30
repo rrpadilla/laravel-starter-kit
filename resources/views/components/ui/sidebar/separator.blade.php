@@ -1,4 +1,3 @@
-<!-- resources/views/components/ui/sidebar/separator.blade.php -->
 @props(['class' => ''])
 
 <hr

@@ -1,4 +1,3 @@
-<!-- resources/views/components/ui/sidebar/menu-sub-item.blade.php -->
 @props(['class' => ''])
 
 <li

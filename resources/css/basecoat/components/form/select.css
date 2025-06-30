@@ -1,0 +1,72 @@
+/* Select */
+@layer components {
+    .form select,
+    select.select {
+        @apply border-input focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex h-9 w-fit appearance-none items-center justify-between gap-2 rounded-md border bg-transparent py-2 pr-9 pl-3 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50;
+        @apply bg-[image:var(--chevron-down-icon-50)] bg-size-[1rem] bg-position-[center_right_0.75rem] bg-no-repeat;
+
+        option,
+        optgroup {
+            @apply bg-popover text-popover-foreground;
+        }
+    }
+    *:not(select).select {
+        @apply relative inline-flex;
+
+        [data-popover] {
+            @apply p-1;
+
+            [role='option'] {
+                @apply [&_svg]:text-muted-foreground relative flex w-full cursor-default items-center gap-2 truncate rounded-sm py-1.5 pr-7.5 pl-2 text-sm outline-hidden select-none disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 aria-hidden:hidden [&_svg]:size-4 [&_svg]:shrink-0;
+
+                &[aria-selected='true'] {
+                    @apply bg-[image:var(--check-icon)] bg-size-[0.875rem] bg-position-[center_right_0.5rem] bg-no-repeat;
+                }
+                &.active,
+                &:focus-visible {
+                    @apply bg-accent text-accent-foreground;
+                }
+            }
+            [role='listbox'] [role='heading'] {
+                @apply text-muted-foreground flex px-2 py-1.5 text-xs;
+            }
+            [role='listbox']
+                [role='group']:not(
+                    :has([role='option']:not([aria-hidden='true']))
+                ) {
+                @apply hidden;
+            }
+            [role='separator'] {
+                @apply border-border -mx-1 my-1;
+            }
+            > header {
+                @apply -mx-1 -mt-1 mb-1 flex h-9 items-center gap-2 border-b px-3;
+
+                svg {
+                    @apply size-4 shrink-0 opacity-50;
+                }
+                input[role='combobox'] {
+                    @apply placeholder:text-muted-foreground flex h-10 w-full min-w-0 flex-1 rounded-md bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50;
+                }
+            }
+            [role='listbox']:not(
+                    :has([data-value]:not([aria-hidden='true']))
+                )::before {
+                @apply flex items-center justify-center truncate p-6 text-sm;
+            }
+            [role='listbox'][data-empty]:not(
+                    :has([data-value]:not([aria-hidden='true']))
+                )::before {
+                @apply content-[attr(data-empty)];
+            }
+            [role='listbox']:not([data-empty]):not(
+                    :has([data-value]:not([aria-hidden='true']))
+                )::before {
+                @apply content-['No_results_found'];
+            }
+        }
+        &:not([data-select-initialized]) [data-popover] [role='option'] {
+            @apply hover:bg-accent hover:text-accent-foreground;
+        }
+    }
+}

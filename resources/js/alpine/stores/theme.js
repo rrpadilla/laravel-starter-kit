@@ -1,39 +1,42 @@
 export default (Alpine) => ({
-    mode: Alpine.$persist('system').as('appearance'),
-    _mediaQuery: window.matchMedia('(prefers-color-scheme: dark)'),
-    _bound: false,
+    mode: 'system', // 'light' | 'dark' | 'system'
+    _mq: window.matchMedia('(prefers-color-scheme: dark)'),
 
-    get isDark() {
-        return this.mode === 'dark' || (this.mode === 'system' && this._mediaQuery.matches);
-    },
+    init() {
+        try {
+            this.mode = localStorage.getItem('appearance') ?? 'system';
+        } catch (_) {}
 
-    apply(mode = null) {
-        const value = mode ?? this.mode;
-        const isDark = value === 'dark' || (value === 'system' && this._mediaQuery.matches);
-        if (isDark) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    },
-
-    init(mode = null) {
-        this.apply(mode);
-
-        if (!this._bound) {
-            this._mediaQuery.addEventListener('change', () => {
-                if (this.mode === 'system') this.apply('system');
-            });
-            this._bound = true;
-        }
-    },
-
-    set(value) {
-        this.mode = value;
-        this.apply(value);
+        // Sync when OS preference changes and we're in system mode
+        this._mq.addEventListener('change', (e) => {
+            if (this.mode === 'system') this._apply(this.mode, e.matches);
+        });
     },
 
     toggle() {
-        this.set(this.mode === 'dark' ? 'light' : 'dark');
+        const order = ['light', 'dark', 'system'];
+        this.set(order[(order.indexOf(this.mode) + 1) % order.length]);
+    },
+
+    get isDark() {
+        return (
+            this.mode === 'dark' || (this.mode === 'system' && this._mq.matches)
+        );
+    },
+
+    set(value) {
+        if (value === this.mode) return;
+        this.mode = value;
+        this._apply(value);
+    },
+
+    _apply(value = this.mode, prefersDark = this._mq.matches) {
+        const isDark = value === 'dark' || (value === 'system' && prefersDark);
+        document.documentElement.classList.toggle('dark', isDark);
+
+        // Persist the user's intent right after the visual update.
+        try {
+            localStorage.setItem('appearance', value);
+        } catch (_) {}
     },
 });

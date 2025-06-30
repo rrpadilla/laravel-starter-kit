@@ -1,4 +1,3 @@
-<!-- resources/views/components/ui/sidebar/menu-badge.blade.php -->
 @props(['class' => ''])
 
 <div

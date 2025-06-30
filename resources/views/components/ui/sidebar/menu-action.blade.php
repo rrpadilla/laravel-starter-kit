@@ -1,4 +1,3 @@
-<!-- resources/views/components/ui/sidebar/menu-action.blade.php -->
 @props(['showOnHover' => false, 'class' => ''])
 
 <button

@@ -1,4 +1,3 @@
-<!-- resources/views/components/ui/sidebar/menu.blade.php -->
 @props(['class' => ''])
 
 <ul

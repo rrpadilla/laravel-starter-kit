@@ -1,4 +1,3 @@
-<!-- resources/views/components/ui/sidebar/menu-sub-button.blade.php -->
 @props(['size' => 'md', 'isActive' => false, 'class' => ''])
 
 <a

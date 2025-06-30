@@ -1,4 +1,3 @@
-<!-- resources/views/components/ui/sidebar/group-action.blade.php -->
 @props(['class' => ''])
 
 <button

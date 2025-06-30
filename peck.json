@@ -5,9 +5,20 @@
             "php",
             "filesystems",
             "favicon",
+            "favicons",
             "js",
             "dropdown",
-            "nav"
+            "nav",
+            "debugbar",
+            "basecoat",
+            "tooltip",
+            "textarea",
+            "auth",
+            "enums",
+            "vite",
+            "config",
+            "fillable",
+            "https"
         ],
         "paths": []
     }

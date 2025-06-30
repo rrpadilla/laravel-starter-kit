@@ -1,24 +1,23 @@
-import './bootstrap';
+import Alpine from 'alpinejs';
 
-import mask from '@alpinejs/mask'
-import morph from '@alpinejs/morph'
-import persist from '@alpinejs/persist'
-import Alpine from 'alpinejs'
+// Alpine plugins
+import mask from '@alpinejs/mask';
+import morph from '@alpinejs/morph';
+import persist from '@alpinejs/persist';
+Alpine.plugin(mask);
+Alpine.plugin(persist);
+Alpine.plugin(morph);
 
-import registerStores from './alpine/stores'
-import registerComponents from './alpine/components'
+// Expose Alpine globally
+window.Alpine = Alpine;
 
-// Plugins.
-Alpine.plugin(mask)
-Alpine.plugin(persist)
-Alpine.plugin(morph)
+// Custom Alpine stores and components
+import registerComponents from './alpine/components';
+import registerStores from './alpine/stores';
+registerStores(Alpine);
+registerComponents(Alpine);
 
-// Stores.
-registerStores(Alpine)
+Alpine.start();
 
-// Components.
-registerComponents(Alpine)
-
-window.Alpine = Alpine
-
-Alpine.start()
+// Basecoat components
+import './basecoat/dropdown-menu.js';

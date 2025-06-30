@@ -1,27 +1,34 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-muted-foreground">
-        {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-    </div>
+<x-layouts.auth
+    :page-title="__('Confirm password')"
+    :title="__('Confirm your password')"
+    :description="__('This is a secure area of the application. Please confirm your password before continuing.')"
+>
+    <!-- Session Status -->
+    <x-auth-session-status class="text-center" :status="session('status')" />
 
-    <form method="POST" action="{{ route('password.confirm') }}">
+    <form class="form" method="POST" action="{{ route('password.confirm') }}">
         @csrf
 
-        <!-- Password -->
-        <div>
-            <x-input-label for="password" :value="__('Password')" />
+        <div class="space-y-6">
+            <div class="grid gap-2">
+                <label for="password">{{ __('Password') }}</label>
+                <input
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                    autofocus
+                    @error('password') aria-invalid="true" @enderror
+                />
+                <x-input-error-for for="password" />
+            </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <div class="flex justify-end mt-6">
-            <x-primary-button>
-                {{ __('Confirm') }}
-            </x-primary-button>
+            <div class="flex items-center">
+                <button class="btn w-full">
+                    {{ __('Confirm password') }}
+                </button>
+            </div>
         </div>
     </form>
-</x-guest-layout>
+</x-layouts.auth>
