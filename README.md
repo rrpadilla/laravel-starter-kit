@@ -4,6 +4,27 @@ A modern **Laravel 12** starter kit powered by **Blade**, **Tailwind CSS v4**, *
 
 ---
 
+## 🎥 Live Preview
+
+### 🖥️ Dashboard
+![Dashboard Preview](https://github.com/user-attachments/assets/59e95287-d9e9-4d4c-a1e9-b727f1a6b0a7)
+
+
+## 🔐 Multiple Login Screens
+
+### 1. Card
+<div align="center">
+  <img width="715" alt="login-card" src="https://github.com/user-attachments/assets/c3eed393-9e67-4117-a712-00cab249d9d6" />
+</div>
+
+### 2. Split
+
+<div align="center">
+  <img width="1567" alt="login-split" src="https://github.com/user-attachments/assets/9741e748-61d4-473c-b48f-fc177c2c88fa" />
+</div>
+
+---
+
 ## 🚀 Features
 
 - **Laravel 12** with **PHP 8.4**
