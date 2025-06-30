@@ -1,7 +1,7 @@
 (() => {
     const initSelect = (selectComponent) => {
         const trigger = selectComponent.querySelector(':scope > button');
-        const selectedValue = trigger.querySelector(':scope > span');
+        const selectedLabel = trigger.querySelector(':scope > span');
         const popover = selectComponent.querySelector(
             ':scope > [data-popover]'
         );
@@ -62,7 +62,7 @@
 
         const updateValue = (option) => {
             if (option) {
-                selectedValue.innerHTML =
+                selectedLabel.innerHTML =
                     option.dataset.label || option.innerHTML;
                 input.value = option.dataset.value;
                 listbox
@@ -102,30 +102,27 @@
         const selectOption = (option) => {
             if (!option) return;
 
-            if (option.dataset.value != null) {
+            const oldValue = input.value;
+            const newValue = option.dataset.value;
+
+            if (newValue != null && newValue !== oldValue) {
                 updateValue(option);
             }
 
             closePopover();
 
-            const event = new CustomEvent('change', {
-                detail: { value: option.dataset.value },
-                bubbles: true,
-            });
-            selectComponent.dispatchEvent(event);
-        };
-
-        const selectByValue = (value) => {
-            const option = options.find((opt) => opt.dataset.value === value);
-            if (option) {
-                updateValue(option);
-
+            if (newValue !== oldValue) {
                 const event = new CustomEvent('change', {
-                    detail: { value: option.dataset.value },
+                    detail: { value: newValue },
                     bubbles: true,
                 });
                 selectComponent.dispatchEvent(event);
             }
+        };
+
+        const selectByValue = (value) => {
+            const option = options.find((opt) => opt.dataset.value === value);
+            selectOption(option);
         };
 
         if (filter) {

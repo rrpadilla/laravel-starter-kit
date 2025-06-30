@@ -1,16 +1,17 @@
 # Laravel Blade + Tailwind Starter Kit
 
-A modern Laravel 12 starter kit powered by **Blade**, **Tailwind CSS v4**, **Vite**, **Pest**, and full-stack automation for clean, maintainable development.
+A modern **Laravel 12** starter kit powered by **Blade**, **Tailwind CSS v4**, **Vite**, **Pest**, and full-stack automation for clean, maintainable development—now including **Basecoat UI** out-of-the-box.
 
 ---
 
 ## 🚀 Features
 
-- **Laravel 12** with PHP 8.4
+- **Laravel 12** with **PHP 8.4**
 - **Blade** + **Alpine.js** for reactive UIs
 - **Tailwind CSS v4** + Prettier integration
+- **Basecoat UI** — Tailwind-powered component library (**shadcn/ui** style, but no React required)
 - **Vite** for fast frontend builds
-- **Pest** for testing, with 100% type + coverage targets
+- **Pest** for testing with 100 % type & coverage targets
 - **Pint**, **Peck**, **Rector**, **Larastan** for code quality
 - Full `dev` script with auto-serve, queue, logs, and Vite in sync
 
@@ -23,6 +24,7 @@ git clone <your-repo>
 cd <project>
 composer install
 npm ci
+npm run build
 cp .env.example .env
 php artisan key:generate
 php artisan migrate
@@ -85,13 +87,16 @@ npm run test:lint    # Check only
 
 ## 🧩 Project Structure
 
-- `resources/views/` — Blade templates
-- `resources/css/` — Tailwind styles
-- `resources/js/` — Alpine.js components
-- `routes/web.php` — App routes
-- `tests/` — Pest tests (Feature, Unit)
-- `app/Actions/` — Action-based logic
-- `.prettierrc`, `.prettierignore` — Format rules
+```
+├── resources/
+│   ├── css/            # Tailwind + Basecoat UI + Custom components.
+│   ├── js/             # Alpine.js stores/components + Basecoat UI components + Custom components.
+│   └── views/          # Blade templates
+├── routes/web.php      # App routes
+├── tests/              # Pest tests
+├── app/Actions/        # Action-based logic
+├── peck.json           # Peck spelling config
+```
 
 ---
 
@@ -112,6 +117,7 @@ npm run test:lint    # Check only
 ### Frontend (via `package.json`)
 
 - **Tailwind CSS v4**
+- **Basecoat UI** — Tailwind-powered component library (**shadcn/ui** style, but no React required)
 - **Prettier** with:
     - `prettier-plugin-tailwindcss`
     - `prettier-plugin-organize-imports`
@@ -129,6 +135,16 @@ Designed to work seamlessly with GitHub Actions:
 ```yaml
 composer test # Used in CI to validate full code quality
 ```
+
+---
+
+## 🤝Contributing
+
+1. Fork & clone
+2. `composer install && npm ci && npm run build`
+3. Create a feature branch (`git checkout -b feat/my-change`)
+4. Run `composer test` → **all green**
+5. PR with a clear description 🎉
 
 ---
 
